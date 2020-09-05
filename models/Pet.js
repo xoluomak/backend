@@ -10,7 +10,7 @@ const frequencySchema = mongoose.Schema({
   });
    
 const reptileSchema = mongoose.Schema({
-    name: { type: String, required: true, unique: true },
+    name: { type: String, required: true },
     imageUrl: { type: String, required: false },
     group: { type: String, required: true },
     foodType: { type: [String], required: true },
