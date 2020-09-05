@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const uniqueValidator = require('mongoose-unique-validator');
 
 const frequencySchema = mongoose.Schema({
   period: { type: String, required: true },
@@ -11,13 +10,11 @@ const frequencySchema = mongoose.Schema({
 });
  
 const reptileSchema = mongoose.Schema({
-  name: { type: String, required: true, unique: true },
+  name: { type: String, required: true },
   imageUrl: { type: String, required: false },
   group: { type: String, required: true },
   foodType: { type: [String], required: true },
   frequency: { type: [frequencySchema], required: true },
 });
-
-reptileSchema.plugin(uniqueValidator);
 
 module.exports = mongoose.model('Reptile', reptileSchema);
