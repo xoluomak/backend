@@ -22,6 +22,7 @@ const petSchema = mongoose.Schema({
     owner: { type: String, required: true },
     reptile: { type: reptileSchema, required: true },
     birthday: { type: Date, required: false },
+    shade: { type: [Date], required: false },
     calciumFreq: { type: Number, required: false },
     vitaminFreq: { type: Number, required: false }
   });
