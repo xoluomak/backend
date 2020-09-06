@@ -8,6 +8,7 @@ exports.signup = (req, res, next) => {
         const user = new User({
           email: req.body.email,
           username: req.body.username,
+          isAdmin: req.body.isAdmin,
           password: hash
         });
         user.save()
@@ -77,4 +78,16 @@ exports.signin = (req, res, next) => {
     User.findOne({ _id: req.params.id })
       .then(user => res.status(200).json(user))
       .catch(error => res.status(404).json({ error }));
+  }
+
+  exports.DeleteAllUser = (req, res, next) => {
+    User.deleteMany()
+      .then(() => res.status(200).json({ message: 'All users deleted !'}))
+      .catch(error => res.status(400).json({ error }));
+  }
+
+  exports.DeleteUser = (req, res, next) => {
+    User.deleteOne({ _id: req.params.id })
+      .then(() => res.status(200).json({ message: 'User deleted !'}))
+      .catch(error => res.status(400).json({ error }));
   }
