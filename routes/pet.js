@@ -6,6 +6,8 @@ const petCtrl = require('../controllers/pet');
 
 router.get('/:id', auth, petCtrl.findOnePet);
 
+router.get('/user/:id', auth, petCtrl.findPetByUser);
+
 router.post('/', auth, petCtrl.createPet);
 
 router.put('/:id', auth, petCtrl.editPet);

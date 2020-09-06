@@ -45,3 +45,10 @@ exports.findAllPet = (req, res, next) => {
       .then(pets => res.status(200).json(pets))
       .catch(error => res.status(400).json({ error }));
   };
+
+exports.findPetByUser = (req, res, next) => {
+    console.log('Looking for pets with owner.' );
+    Pet.find({ owner: req.params.userId})
+      .then(pets => res.status(200).json(pets))
+      .catch(error => res.status(400).json({ error }));
+  };

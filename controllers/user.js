@@ -65,3 +65,7 @@ exports.signin = (req, res, next) => {
       })
       .catch(error => res.status(500).json({ error }));
   };
+
+exports.FindAllUser = (req, res, next) => {
+  return User.FindAllUser();
+}
