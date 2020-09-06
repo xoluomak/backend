@@ -16,14 +16,15 @@ const reptileSchema = mongoose.Schema({
     foodType: { type: [String], required: true },
     frequency: { type: [frequencySchema], required: true },
   });
-
+  
+// lastMeal : [0] --> lastMeal / [1] --> LastCalcuimMeal / [2] --> lastVitaminMeal
 const petSchema = mongoose.Schema({
     name: { type: String, required: true },
     owner: { type: String, required: true },
     reptile: { type: reptileSchema, required: true },
     birthday: { type: Date, required: false },
     shade: { type: [Date], required: false },
-    lastMeal: { type: Date, required: false },
+    lastMeal: { type: [Date], required: false },
     calciumFreq: { type: Number, required: false },
     vitaminFreq: { type: Number, required: false }
   });
