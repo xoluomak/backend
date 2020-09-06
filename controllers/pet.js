@@ -47,8 +47,9 @@ exports.findAllPet = (req, res, next) => {
   };
 
 exports.findPetByUser = (req, res, next) => {
-    console.log('Looking for pets with owner.' );
-    Pet.find({ [owner]: req.params.id })
+  console.log('Looking for pets with owner.');
+  console.log(req.params);
+    Pet.find({ owner: req.params.id })
       .then(pets => res.status(200).json(pets))
       .catch(error => res.status(400).json({ error }));
   };
