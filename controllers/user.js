@@ -31,6 +31,7 @@ exports.signin = (req, res, next) => {
             }
             res.status(200).json({
               userId: user._id,
+              isAdmin: user.isAdmin,
               token: jwt.sign(
                 { userId: user._id },
                 'RANDOM_TOKEN_SECRET',
@@ -67,7 +68,9 @@ exports.signin = (req, res, next) => {
   };
 
   exports.FindAllUser = (req, res, next) => {
-    return User.find();
+    User.find()
+      .then(users => res.status(200).json(users))
+      .catch(error => res.status(404).json({ error }));
   }
 
   exports.FindUserById = (req, res, next) => {
