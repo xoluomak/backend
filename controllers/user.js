@@ -67,7 +67,7 @@ exports.signin = (req, res, next) => {
   };
 
   exports.FindAllUser = (req, res, next) => {
-    return User.FindAllUser();
+    return User.find();
   }
 
   exports.FindUserById = (req, res, next) => {
