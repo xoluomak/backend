@@ -20,9 +20,9 @@ exports.findOnePet = (req, res, next) => {
 
 exports.editPet = (req, res, next) => {
     console.log('Editing pet.');
-    Pet.updateOne({ _id: req.params.id }, { ...req.body.pet, _id: req.params.pet.id })
+    Pet.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
       .then(() => res.status(200).json({ message: 'Pet edited !'}))
-      .catch(error => res.status(400).json({ message: req.body }));
+      .catch(error => res.status(400).json({ error }));
   };
 
 exports.deletePet = (req, res, next) => {
