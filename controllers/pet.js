@@ -12,7 +12,7 @@ exports.createPet = (req, res, next) => {
   };
 
 exports.findOnePet = (req, res, next) => {
-    console.log('Looking for one pet.');
+  console.log('Looking for one pet.');
     Pet.findOne({ _id: req.params.id })
       .then(pet => res.status(200).json(pet))
       .catch(error => res.status(404).json({ error }));
