@@ -24,12 +24,11 @@ const lastMealSchema = mongoose.Schema({
   calcium: { type: Boolean, required: true },
 });
   
-// lastMeal : [0] --> lastMeal / [1] --> LastCalcuimMeal / [2] --> lastVitaminMeal
 const petSchema = mongoose.Schema({
   name: { type: String, required: true },
   owner: { type: String, required: true },
   enabled: { type: Boolean, required: true },
-  reptile: { type: reptileSchema, required: true },
+  reptile: { type: reptileSchema, required: true, unique: false },
   birthday: { type: Date, required: false },
   shade: { type: [Date], required: false },
   lastMeal: { type: [lastMealSchema], required: false },
@@ -38,5 +37,6 @@ const petSchema = mongoose.Schema({
 });
 
 reptileSchema.plugin(uniqueValidator);
+petSchema.plugin(uniqueValidator);
 
 module.exports = mongoose.model('Pet', petSchema);
