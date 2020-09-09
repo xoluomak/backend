@@ -15,7 +15,7 @@ const reptileSchema = mongoose.Schema({
   imageUrl: { type: String, required: false },
   group: { type: String, required: true },
   foodType: { type: [String], required: true },
-  frequency: { type: [Schema.Types.ObjectId], ref: Frequency },
+  frequency: { type: [Schema.Types.ObjectId], required: true },
 });
    
 const lastMealSchema = mongoose.Schema({
@@ -28,19 +28,15 @@ const petSchema = mongoose.Schema({
   name: { type: String, required: true },
   owner: { type: String, required: true },
   enabled: { type: Boolean, required: true },
-  reptile: { type: Schema.Types.ObjectId, ref: Reptile },
+  reptile: { type: Schema.Types.ObjectId, required: true, unique: false },
   birthday: { type: Date, required: false },
   shade: { type: [Date], required: false },
-  lastMeal: { type: [Schema.Types.ObjectId], ref: LastMeal },
+  lastMeal: { type: [Schema.Types.ObjectId], required: false },
   calciumFreq: { type: Number, required: false },
   vitaminFreq: { type: Number, required: false }
 });
 
 reptileSchema.plugin(uniqueValidator);
 petSchema.plugin(uniqueValidator);
-
-const Reptile = mongoose.model('Reptile', reptileSchema);
-const LastMeal = mongoose.model('LastMeal', lastMealSchema);
-const Frequency = mongoose.model('Frequency', frequencySchema);
 
 module.exports = mongoose.model('Pet', petSchema);
