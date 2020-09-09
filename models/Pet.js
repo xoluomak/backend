@@ -15,7 +15,7 @@ const reptileSchema = mongoose.Schema({
   imageUrl: { type: String, required: false },
   group: { type: String, required: true },
   foodType: { type: [String], required: true },
-  frequency: { type: [frequencySchema], required: true },
+  frequency: { ref: [frequencySchema], required: true },
 });
    
 const lastMealSchema = mongoose.Schema({
@@ -28,10 +28,10 @@ const petSchema = mongoose.Schema({
   name: { type: String, required: true },
   owner: { type: String, required: true },
   enabled: { type: Boolean, required: true },
-  reptile: { type: reptileSchema, required: true, unique: false },
+  reptile: { ref: reptileSchema, required: true, unique: false },
   birthday: { type: Date, required: false },
   shade: { type: [Date], required: false },
-  lastMeal: { type: [lastMealSchema], required: false },
+  lastMeal: { ref: [lastMealSchema], required: false },
   calciumFreq: { type: Number, required: false },
   vitaminFreq: { type: Number, required: false }
 });
