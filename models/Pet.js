@@ -9,7 +9,7 @@ const frequencySchema = mongoose.Schema({
   delay: { type: String, required: true },
 });
    
-const reptileSchema = mongoose.Schema({
+const aloneReptileSchema = mongoose.Schema({
   name: { type: String, required: true },
   imageUrl: { type: String, required: false },
   group: { type: String, required: true },
@@ -28,7 +28,7 @@ const petSchema = mongoose.Schema({
   name: { type: String, required: true },
   owner: { type: String, required: true },
   enabled: { type: Boolean, required: true },
-  reptile: { type: reptileSchema, required: true },
+  reptile: { type: aloneReptileSchema, required: true },
   birthday: { type: Date, required: false },
   shade: { type: [Date], required: false },
   lastMeal: { type: [lastMealSchema], required: false },
