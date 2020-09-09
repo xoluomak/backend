@@ -28,7 +28,7 @@ const petSchema = mongoose.Schema({
   name: { type: String, required: true },
   owner: { type: String, required: true },
   enabled: { type: Boolean, required: true },
-  reptile: { type: reptileSchema, required: true, unique: false },
+  reptile: { type: Schema.Types.ObjectId, ref: reptileSchema },
   birthday: { type: Date, required: false },
   shade: { type: [Date], required: false },
   lastMeal: { type: lastMealSchema, required: false },
