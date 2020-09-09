@@ -8,7 +8,7 @@ const frequencySchema = mongoose.Schema({
   number: { type: String, required: true },
   delay: { type: String, required: true },
 });
-   
+ 
 const reptileSchema = mongoose.Schema({
   name: { type: String, required: true },
   imageUrl: { type: String, required: false },
