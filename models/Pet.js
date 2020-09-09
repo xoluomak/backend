@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const uniqueValidator = require('mongoose-unique-validator');
 
 const frequencySchema = mongoose.Schema({
   period: { type: String, required: true },
@@ -11,11 +10,11 @@ const frequencySchema = mongoose.Schema({
 });
    
 const reptileSchema = mongoose.Schema({
-  name: { type: String, required: true, unique: false },
+  name: { type: String, required: true },
   imageUrl: { type: String, required: false },
   group: { type: String, required: true },
   foodType: { type: [String], required: true },
-  frequency: { type: frequencySchema, required: true },
+  frequency: { type: [frequencySchema], required: true },
 });
    
 const lastMealSchema = mongoose.Schema({
@@ -28,15 +27,12 @@ const petSchema = mongoose.Schema({
   name: { type: String, required: true },
   owner: { type: String, required: true },
   enabled: { type: Boolean, required: true },
-  reptile: { type: Schema.Types.ObjectId, ref: reptileSchema },
+  reptile: { type: reptileSchema, required: true },
   birthday: { type: Date, required: false },
   shade: { type: [Date], required: false },
-  lastMeal: { type: lastMealSchema, required: false },
+  lastMeal: { type: [lastMealSchema], required: false },
   calciumFreq: { type: Number, required: false },
   vitaminFreq: { type: Number, required: false }
 });
-
-reptileSchema.plugin(uniqueValidator);
-petSchema.plugin(uniqueValidator);
 
 module.exports = mongoose.model('Pet', petSchema);
