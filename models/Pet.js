@@ -32,7 +32,8 @@ const petSchema = mongoose.Schema({
   shade: { type: [Date], required: false },
   lastMeal: { type: [lastMealSchema], required: false },
   calciumFreq: { type: Number, required: false },
-  vitaminFreq: { type: Number, required: false }
+  vitaminFreq: { type: Number, required: false },
+  picture: { type: Image, required: false },
 });
 
 module.exports = mongoose.model('Pet', petSchema);
