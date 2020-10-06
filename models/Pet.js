@@ -33,6 +33,7 @@ const petSchema = mongoose.Schema({
   lastMeal: { type: [lastMealSchema], required: false },
   calciumFreq: { type: Number, required: false },
   vitaminFreq: { type: Number, required: false },
+  notifId: { type: String, required: false },
 });
 
 module.exports = mongoose.model('Pet', petSchema);
