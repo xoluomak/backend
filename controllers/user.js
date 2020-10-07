@@ -91,3 +91,23 @@ exports.signin = (req, res, next) => {
       .then(() => res.status(200).json({ message: 'User deleted !'}))
       .catch(error => res.status(400).json({ error }));
   }
+
+  exports.VerifyToken = (req) => {
+    var header1 = req.headers.authorization;
+    if (!header1) return res.status(400).end('mauvais token or Bearer mal ecrit');
+
+    var header = (header1.toString()).split(" ");
+    var token = header[1];
+
+    if (header < 2)
+        return res.status(400).end('mauvais token or Bearer mal ecrit');
+    if (header[0] != 'Bearer')
+        return res.status(400).end('mauvais token or Bearer mal ecrit');
+    try {
+        jwt.verify(token, 'secret', {expiresIn: "500h"});
+    } catch (e) {
+       return res.status(400).end('mauvais token or Bearer mal ecrit');
+    }
+    return res.status(200).json('Successful');;
+  }
+
