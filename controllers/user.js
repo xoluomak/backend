@@ -94,19 +94,19 @@ exports.signin = (req, res, next) => {
 
   exports.VerifyToken = (req) => {
     var header1 = req.headers.authorization;
-    if (!header1) return res.status(400).end('mauvais token or Bearer mal ecrit');
+    if (!header1) return res.status(400).end('Unable to find access token');
 
     var header = (header1.toString()).split(" ");
     var token = header[1];
 
     if (header < 2)
-        return res.status(400).end('mauvais token or Bearer mal ecrit');
+        return res.status(400).end('Bearer or token missing');
     if (header[0] != 'Bearer')
-        return res.status(400).end('mauvais token or Bearer mal ecrit');
+        return res.status(400).end('Unable to find Bearer key');
     try {
-        jwt.verify(token, 'secret', {expiresIn: "500h"});
+        jwt.verify(token, 'secret', {expiresIn: "1h"});
     } catch (e) {
-       return res.status(400).end('mauvais token or Bearer mal ecrit');
+       return res.status(400).end('Bad token');
     }
     return res.status(200).json('Successful');;
   }

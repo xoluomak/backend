@@ -9,6 +9,6 @@ router.get('/users', userCtrl.FindAllUser);
 router.get('/user/:id', userCtrl.FindUserById);
 router.delete('/users', userCtrl.DeleteAllUser);
 router.delete('/user/:id', userCtrl.DeleteUser);
-router.get('/verify', userCtrl.VerifyToken);
+router.post('/verify', userCtrl.VerifyToken);
 
 module.exports = router;
