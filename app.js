@@ -29,5 +29,6 @@ const app = express();
   app.use('/api/reptile', reptileRoutes);
   app.use('/api/auth', userRoutes);
   app.use('/api/pet', petRoutes);
+  app.use('/api/flower', flowerRoutes);
 
 module.exports = app;
