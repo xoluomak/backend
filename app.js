@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const reptileRoutes = require('./routes/reptile');
 const userRoutes = require('./routes/user');
 const petRoutes = require('./routes/pet');
+const flowerRoutes = require('./routes/flower');
 const path = require('path');
 
 const app = express();
