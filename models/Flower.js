@@ -5,7 +5,7 @@ const flowerSchema = mongoose.Schema({
   place: { type: String, required: true },
   freq: { type: Number, required: true },
   enabled: { type: Boolean, required: true },
-  lastMeal: { type: [lastMealSchema], required: false },
+  lastMeal: { type: [Date], required: false },
   notifId: { type: String, required: false },
 });
 
