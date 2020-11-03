@@ -34,6 +34,7 @@ const petSchema = mongoose.Schema({
   calciumFreq: { type: Number, required: false },
   vitaminFreq: { type: Number, required: false },
   notifId: { type: String, required: false },
+  picture: { type: String, required: false },  
 });
 
 module.exports = mongoose.model('Pet', petSchema);

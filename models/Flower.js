@@ -7,6 +7,7 @@ const flowerSchema = mongoose.Schema({
   enabled: { type: Boolean, required: true },
   lastMeal: { type: [Date], required: false },
   notifId: { type: String, required: false },
+  picture: { type: String, required: false },  
 });
 
 module.exports = mongoose.model('Flower', flowerSchema);
