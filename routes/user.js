@@ -10,6 +10,6 @@ router.get('/users', auth, userCtrl.FindAllUser);
 router.get('/user/:id', auth, userCtrl.FindUserById);
 router.delete('/users', auth, userCtrl.DeleteAllUser);
 router.delete('/user/:id', auth, userCtrl.DeleteUser);
-router.post('/verify', userCtrl.VerifyToken);
+router.get('/verify', userCtrl.VerifyToken);
 
 module.exports = router;
