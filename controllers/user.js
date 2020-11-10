@@ -103,7 +103,7 @@ exports.signin = (req, res, next) => {
     if (header[0] != 'Bearer')
         return res.status(400).end('Unable to find Bearer key');
     try {
-        jwt.verify(header[1], 'secret', {expiresIn: "1h"});
+        jwt.verify(header[1], 'secret', {expiresIn: "24h"});
     } catch (e) {
        return res.status(400).end('Bad token');
     }
