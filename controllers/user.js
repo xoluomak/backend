@@ -97,14 +97,13 @@ exports.signin = (req, res, next) => {
     if (!header1) return res.status(400).end('Unable to find access token');
 
     var header = (header1.toString()).split(" ");
-    var token = header[1];
 
     if (header < 2)
         return res.status(400).end('Bearer or token missing');
     if (header[0] != 'Bearer')
         return res.status(400).end('Unable to find Bearer key');
     try {
-        jwt.verify(token, 'secret', {expiresIn: "1h"});
+        jwt.verify(header[1], 'secret', {expiresIn: "1h"});
     } catch (e) {
        return res.status(400).end('Bad token');
     }
