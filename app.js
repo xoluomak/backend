@@ -8,8 +8,7 @@ const flowerRoutes = require('./routes/flower');
 const path = require('path');
 
 const app = express();
-
-  mongoose.connect('mongodb+srv://admin:admin1234@realmcluster.mgck9.mongodb.net/<dbname>?retryWrites=true&w=majority',
+  mongoose.connect('mongodb+srv://admin:admin1234@realmcluster.mgck9.mongodb.net/repminder?retryWrites=true&w=majority',
     { useNewUrlParser: true,
         useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected !'))
