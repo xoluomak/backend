@@ -35,8 +35,7 @@ exports.signin = (req, res, next) => {
               isAdmin: user.isAdmin,
               token: jwt.sign(
                 { userId: user._id },
-                'RANDOM_TOKEN_SECRET',
-                { expiresIn: '24h' }
+                'RANDOM_TOKEN_SECRET'
               )
             });
           })
@@ -103,7 +102,7 @@ exports.signin = (req, res, next) => {
     if (header[0] != 'Bearer')
         return res.status(400).end('Unable to find Bearer key');
     try {
-        jwt.verify(header[1], 'RANDOM_TOKEN_SECRET', {expiresIn: "24h"});
+        jwt.verify(header[1], 'RANDOM_TOKEN_SECRET');
     } catch (e) {
        return res.status(400).end('Bad token');
     }
