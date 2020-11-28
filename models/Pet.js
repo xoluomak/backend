@@ -22,6 +22,11 @@ const lastMealSchema = mongoose.Schema({
   vitamin: { type: Boolean, required: true },
   calcium: { type: Boolean, required: true },
 });
+
+const WeightSchema = mongoose.Schema({
+  date: { type: Date, required: true },
+  weight: { type: Number, required: true },
+});
   
 const petSchema = mongoose.Schema({
   name: { type: String, required: true },
@@ -31,6 +36,7 @@ const petSchema = mongoose.Schema({
   birthday: { type: Date, required: false },
   shade: { type: [Date], required: false },
   lastMeal: { type: [lastMealSchema], required: false },
+  weight: { type: [WeightSchema], required: false },
   calciumFreq: { type: Number, required: false },
   vitaminFreq: { type: Number, required: false },
   notifId: { type: String, required: false },
