@@ -10,6 +10,7 @@ exports.signup = (req, res, next) => {
           username: req.body.username,
           isAdmin: req.body.isAdmin,
           expoPushToken: req.body.expoPushToken,
+          deviceToken: req.body.deviceToken,
           password: hash
         });
         user.save()
