@@ -9,6 +9,7 @@ exports.signup = (req, res, next) => {
           email: req.body.email,
           username: req.body.username,
           isAdmin: req.body.isAdmin,
+          expoPushToken: req.body.expoPushToken,
           password: hash
         });
         user.save()
