@@ -50,12 +50,20 @@ const app = express();
           receipt = expo.sendPushNotificationsAsync({
             to: user.expoPushToken,
             sound: "default",
-            title: "Test quotidien !",
-            body: "Notification RepMinder !",
+            title: "Test quotidien EXPO !",
+            body: "EXPO Notification RepMinder !",
             data: null
           });          
           continue;
         }
+        console.log(receipt);
+        receipt = expo.sendPushNotificationsAsync({
+          to: user.deviceToken,
+          sound: "default",
+          title: "Test quotidien DEVICE !",
+          body: "DEVICE Notification RepMinder !",
+          data: null
+        });  
         console.log(receipt);
       }
     })

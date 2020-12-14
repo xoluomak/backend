@@ -5,8 +5,8 @@ const userSchema = mongoose.Schema({
   email: { type: String, required: true, unique: true },
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  expoPushToken: { type: String, required: true },
-  deviceToken: { type: String, required: true },
+  expoPushToken: { type: String, required: false },
+  deviceToken: { type: String, required: false },
   isAdmin: { type: Boolean, required: true }
 });
 
